@@ -5,8 +5,8 @@ package com.priority;
  * Created by ddp on 2017/8/17.
  */
 public class PriortyThread {
-    public static class HighPriorty extends Thread{
-        static int count = 0;
+    public  class HighPriorty extends Thread{
+        int count = 0;
         @Override
         public void run() {
             while(true){
@@ -38,7 +38,8 @@ public class PriortyThread {
     }
 
     public static void main(String[] args) {
-        HighPriorty highPriorty = new HighPriorty();
+        PriortyThread priortyThread = new PriortyThread();
+        HighPriorty highPriorty = priortyThread.new HighPriorty();
         LowPriorty lowPriorty = new LowPriorty();
         highPriorty.setPriority(Thread.MAX_PRIORITY);
         lowPriorty.setPriority(Thread.MIN_PRIORITY);
